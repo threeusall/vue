@@ -1,17 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <div>55555555555555</div>
-    <div>44444444444444</div>
-    <div>77777777777777</div>
-    <div>9999999999999999999999999999</div>
-    <div>00000000000000000000d</div>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="index.css"/>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<style type="text/css">
+			.draw-box{
+				width: 300px;
+				height: 300px;
+			}
+			.nav-box{
+				width: 720px;
+				margin: 0 auto;
+				margin-top: 50px;
+			}
+			.nav-box .btn{
+				width: 100px;
+				height: 50px;
+				margin-left: 10px;
+			}
+		</style>
+	</head>
+	
+	<body>
+		
+		<div id="app">
+			
+			<nav-component :id="nav" :class="'nav-box'" :navNames="navNames"></component>
+			<canvas-arrows :id="canvasLeft.id" :width="300" :height="300" :canvas-data="canvasLeft"></canvas-arrows>
+			<canvas-arrows :id="canvasRight.id" :width="300" :height="300":canvas-data="canvasRight"></canvas-arrows>
+			
+		</div>
+		<script src="component.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var app = new Vue({
+				el:"#app",
+				data:{
+					nav:"nav",
+					navNames:{
+						leftBtn:"canvas1",
+						rightBtn:"canvas2"
+					},
+					canvasLeft:{
+						id:'idLeft',
+						point:5,
+						lineWidth:20,
+						grade:12,
+						torad: 130 * Math.PI / 180,
+						start : 3*Math.PI / 4,
+						finish : 2*Math.PI - Math.PI/2 + 3*Math.PI / 4
 
-</body>
+					},
+					canvasRight:{
+						id:'idRight',
+						point:15,
+						lineWidth:20,
+						grade:10,
+						start : 2*Math.PI / 3,
+						finish : 2*Math.PI - Math.PI/2 + 2*Math.PI / 3  
+					}
+
+				},
+				mounted() {
+					// console.log(this.canvasLeft.rad())
+				},
+				methods:{
+					canvasInt:function(){
+						
+					}
+				}
+			})
+			
+			// setTimeout(function () { alert("aa"), 3000 });
+		</script>
+	</body>
 </html>
